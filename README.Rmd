@@ -1,0 +1,40 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo=FALSE}
+library(tldr)
+```
+
+This package gives a number of functions to aid reporting statistical results in an RMarkdown file. Functions will return character strings to report p-values, confidence intervals, and hypothesis test and regression results. Strings will be LaTeX-formatted as necessary and will knit pretty in an RMarkdown document. The package also provides a wrapper for the CreateTableOne function in the tableone package to make the results knitable.
+
+Suppose we have the following data set and some inferential results:
+
+```{r}
+x = rnorm(50)
+test1 = t.test(x)
+```
+
+We can then report the results of the hypothesis test inline using `inline_test(test1)` and get the following: `r inline_test(test1)`.  We can also report the confidence interval using `write_int(test1$conf.int)` to get: `r write_int(test1$conf.int)`.
+
+Similar functions include:
+
+- `inline_reg` to report the fit of a regression model
+- `inline_coef` to report the coefficient of a regression model
+- `write_p` to format a numeric as a p-value
+
+The package also provides the function `KreateTableOne`, a wrapper for `CreateTableOne` from the `tableone` package which makes the results knitable. First use `KreateTableOne` in an R chunk with `results='hide'` (or ouside the RMarkdown document), then recall the saved data frame in a new chunk.  For example:
+
+```{r, results='hide'}
+table1 = KreateTableOne(x=mtcars, strata='am', 
+                        factorVars='vs')
+colnames(table1)[1:2] = c('am = 0', 'am = 1')
+```
+
+Then
+
+```{r}
+knitr::kable(table1[, 1:3], align='r')
+```
