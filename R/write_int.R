@@ -5,7 +5,7 @@
 #' 
 #' @param x A length-2 numeric vector consisting of the endpoints of the interval
 #' @param delim The bracket delimiters to surround the interval. Must be either a round bracket, square bracket, curly bracket, or angled bracket.
-#' @param digits Number of digits to round to (default to 2)
+#' @param digits Number of digits to round to (default to 2). Will keep trailing zeros.
 #' 
 #' @return Returns a character string of the form "(x[1], x[2])" (or supplied bracket delimiter).
 #' 
@@ -33,7 +33,10 @@ write_int = function(x, delim='(', digits=2){
     delim2 = '>'
   }
   
-  strng = paste0(delim1, round(x[1],digits), ', ', round(x[2],digits), delim2)
+  
+  spr_fmt = paste0('%.', digits, 'f')
+  strng = paste0(delim1, sprintf(spr_fmt, x[1]), ', ', 
+                 sprintf(spr_fmt, x[2]), delim2)
   
   return(strng)
 }
