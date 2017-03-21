@@ -2,20 +2,42 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 This package gives a number of functions to aid reporting statistical results in an RMarkdown file. Functions will return character strings to report p-values, confidence intervals, and hypothesis test and regression results. Strings will be LaTeX-formatted as necessary and will knit pretty in an RMarkdown document. The package also provides a wrapper for the CreateTableOne function in the tableone package to make the results knitable.
 
+`inline` and `write` functions
+------------------------------
+
+-   `inline_test()`
+-   `inline_reg()`
+-   `inline_coef()`
+-   `inline_anova()`
+-   `write_int()`
+-   `write_p()`
+
 Suppose we have the following data set and some inferential results:
 
 ``` r
 x = rnorm(50)
+y = rnorm(50)
+a = sample(letters[1:3], size=50, replace=TRUE)
+b = sample(letters[1:3], size=50, replace=TRUE)
+
 test1 = t.test(x)
+test2 = chisq.test(table(a,b))
+model1 = lm(y ~ x)
+model2 = lm(y ~ a)
 ```
 
-We can then report the results of the hypothesis test inline using `inline_test(test1)` and get the following: *t*(49)=1.07, *p* = 0.29. We can also report the confidence interval using `write_int(test1$conf.int)` to get: (-0.14, 0.47).
+We can then report the results of the hypothesis test inline using `inline_test(test1)` and get the following: *t*(49)=0.73, *p* = 0.47. Simiarly, `inline_test(test2)` will report the results of the chi-squared test: *χ*<sup>2</sup>(4)=6.6, *p* = 0.16. So far `inline_test` only works for *t* and chi-squared tests, but the goal is to add more functionality - requests gladly accepted.
 
-Similar functions include:
+The regression results can be reported with `inline_reg(model1)` and `inline_coef(model1, 'x')` to get *R*<sup>2</sup> = 0.03, *F*(1, 48)=1.64, *p* = 0.21 and *b* = 0.17, *t*(48)=1.28, *p* = 0.21, respectively. In addition, `inline_anova(model2)` will report the ANOVA F statistic and relevant results: *F*(2, 47)=0.39, *p* = 0.68. So far `inline_reg` and `inline_coef` currently work for `lm` and `glm` objects; `inline_anova` only works for `lm` objects.
 
--   `inline_reg` to report the fit of a regression model
--   `inline_coef` to report the coefficient of a regression model
--   `write_p` to format a numeric as a p-value
+We can also report the confidence intervals using `write_int()` with a length-2 vector of interval endpoints. For example, `write_int(c(3.04, 4.7))` and `write_int(text1$conf.int)` yield (3.04, 4.7) and (-0.19, 0.41), respecively.
+
+P-values can be reported using `write_p()`. This function will take either a numeric value or a list-like object with an element named `p.value`. For example, `write_p(0.00002)` gives *p* &lt; 0.01 and `write_p(test1)` gives *p* = 0.47.
+
+See the help files of all functions described above for more details and options. For example, all test and regression reporting functions have wrappers ending in `_p` which report only the p-value of the input.
+
+`KreateTableOne`
+----------------
 
 The package also provides the function `KreateTableOne`, a wrapper for `CreateTableOne` from the `tableone` package which makes the results knitable. First use `KreateTableOne` in an R chunk with `results='hide'` (or ouside the RMarkdown document), then recall the saved data frame in a new chunk. For example:
 
