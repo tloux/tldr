@@ -3,22 +3,22 @@
 #' 
 #' \code{cat_compare} gives details about the association between two categorical variables.
 #' 
-#' Strictly, `x` and `y` do not need to be characters or factors. Either or both may be numerical, but it will be assumed the numbers are coded categories. 
+#' Strictly, x and y do not need to be characters or factors. Either or both may be numerical, but it will be assumed the numbers are coded categories. 
 #' 
-#' @param y A categorical variables: the outcome, if appropriate
+#' @param y A categorical variable: the outcome, if appropriate
 #' @param x A catgegorical variable: the predictor or group variable, if appropriate
 #' @param title The main title of the mosaic plot
 #' @param digits Number of digits which proportion table should be round to (default to 2)
 #' @param plot Logical. Whether a mosaic plot should be drawn
 #' 
-#' @return Returns a list including (1) a two-way table of counts, (2) a two-way table of proportions conditional on `x`, (3) a chi-squared test for independence between `x` and `y`, and (4) Cramer's V for the association between `x` and `y`.
+#' @return Returns a list including (1) a two-way table of counts, (2) a two-way table of proportions conditional on x (columns), (3) a chi-squared test for independence between x and y, and (4) Cramer's V for the association between x and y.
 #' 
 #' The two tables will include missing values of both variables, but these rows/columns are discarded prior to the chi-squared test and Cramer's V calculations.
 #' 
 #' @examples
 #' v1 = rbinom(n=50, size=1, p=0.5)
-#' v2 = rbinom(n=50, size=2, p=0.3 + 0.2*x)
-#' cat_compate(y=v2, x=v1, title='A cat_compare example', digits=3, plot=TRUE)
+#' v2 = rbinom(n=50, size=2, p=0.3 + 0.2*v1)
+#' cat_compare(y=v2, x=v1, title='A cat_compare example', digits=3, plot=TRUE)
 #' 
 #' @export
 

@@ -7,7 +7,7 @@
 cat_compare(y, x, title = "", digits = 2, plot = TRUE)
 }
 \arguments{
-\item{y}{A categorical variables: the outcome, if appropriate}
+\item{y}{A categorical variable: the outcome, if appropriate}
 
 \item{x}{A catgegorical variable: the predictor or group variable, if appropriate}
 
@@ -18,7 +18,7 @@ cat_compare(y, x, title = "", digits = 2, plot = TRUE)
 \item{plot}{Logical. Whether a mosaic plot should be drawn}
 }
 \value{
-Returns a list including (1) a two-way table of counts, (2) a two-way table of proportions conditional on `x`, (3) a chi-squared test for independence between `x` and `y`, and (4) Cramer's V for the association between `x` and `y`.
+Returns a list including (1) a two-way table of counts, (2) a two-way table of proportions conditional on x (columns), (3) a chi-squared test for independence between x and y, and (4) Cramer's V for the association between x and y.
 
 The two tables will include missing values of both variables, but these rows/columns are discarded prior to the chi-squared test and Cramer's V calculations.
 }
@@ -26,12 +26,12 @@ The two tables will include missing values of both variables, but these rows/col
 \code{cat_compare} gives details about the association between two categorical variables.
 }
 \details{
-Strictly, `x` and `y` do not need to be characters or factors. Either or both may be numerical, but it will be assumed the numbers are coded categories.
+Strictly, x and y do not need to be characters or factors. Either or both may be numerical, but it will be assumed the numbers are coded categories.
 }
 \examples{
 v1 = rbinom(n=50, size=1, p=0.5)
-v2 = rbinom(n=50, size=2, p=0.3 + 0.2*x)
-cat_compate(y=v2, x=v1, title='A cat_compare example', digits=3, plot=TRUE)
+v2 = rbinom(n=50, size=2, p=0.3 + 0.2*v1)
+cat_compare(y=v2, x=v1, title='A cat_compare example', digits=3, plot=TRUE)
 
 }
 
