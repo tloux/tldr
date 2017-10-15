@@ -11,7 +11,7 @@ write_int(x, delim = "(", digits = 2)
 
 \item{delim}{The bracket delimiters to surround the interval. Must be either a round bracket, square bracket, curly bracket, or angled bracket.}
 
-\item{digits}{Number of digits to round to (default to 2)}
+\item{digits}{Number of digits to round to (default to 2). Will keep trailing zeros.}
 }
 \value{
 Returns a character string of the form "(x[1], x[2])" (or supplied bracket delimiter).
