@@ -25,9 +25,9 @@
 #' 
 #' @export
 
-KreateTableOne = function(x, ...){
+KreateTableOne = function(x, ..., printSMD = TRUE){
   t1 = tableone::CreateTableOne(data=x, ...)
-  t2 = print(t1, quote=TRUE)
+  t2 = print(t1, quote=TRUE, ...)
   rownames(t2) = gsub(pattern='\\"', replacement='', rownames(t2))
   colnames(t2) = gsub(pattern='\\"', replacement='', colnames(t2))
   return(t2)
