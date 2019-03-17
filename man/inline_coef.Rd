@@ -43,4 +43,3 @@ inline_coef(model1, 'x1')
 inline_coef_p(model1, 'x1')
 
 }
-

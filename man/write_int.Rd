@@ -24,4 +24,3 @@ write_int(x=c(1.2, 2.345))
 write_int(x=c(1.2, 2.345), delim='[')
 
 }
-

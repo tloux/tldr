@@ -34,4 +34,3 @@ v2 = rbinom(n=50, size=2, p=0.3 + 0.2*v1)
 cat_compare(y=v2, x=v1, title='A cat_compare example', digits=3, plot=TRUE)
 
 }
-

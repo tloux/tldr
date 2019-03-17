@@ -2,12 +2,16 @@
 % Please edit documentation in R/KreateTableOne.R
 \name{KreateTableOne}
 \alias{KreateTableOne}
+\alias{svyKreateTableOne}
 \title{Create a table of descriptive statistics formatted for knitr::kable}
 \usage{
-KreateTableOne(x, ...)
+KreateTableOne(x, ..., printSMD = TRUE)
+
+svyKreateTableOne(x, ..., printSMD = TRUE)
 }
 \arguments{
-\item{x}{The data set to be passed to the \code{data} parameter of \code{tableone::CreateTableOne}}
+\item{x}{The data set to be passed to the \code{data} parameter of
+\code{tableone::CreateTableOne}}
 
 \item{...}{Other parameters to be passed to \code{tableone::CreateTableOne}}
 }
@@ -15,12 +19,21 @@ KreateTableOne(x, ...)
 Returns a data frame of character columns.
 }
 \description{
-\code{KreateTableOne} is a wrapper for \code{tableone::CreateTableOne} which formats the original plain text table as a data.frame of character columns. This can be printed in an RMarkdown document in a number of ways, e.g., using \code{knitr::kable}.
+\code{KreateTableOne} is a wrapper for \code{tableone::CreateTableOne} which
+formats the original plain text table as a data.frame of character columns.
+This can be printed in an RMarkdown document in a number of ways, e.g., using
+\code{knitr::kable}. \code{svyKreateTabeOne} does the same with
+\code{tableone::svyCreateTableOne}.
 }
 \details{
-This is a very hacky function. If used within an RMarkdown document, KreateTableOne should be called in a code chunk with \code{results='hide'} to hide the plain test results printed from \code{tableone::CreateTableOne}. The resulting data frame should be saved as an object and used in a second code chunk for formatted printing. Suggestions for improvement are welcomed.
+This is a very hacky function. If used within an RMarkdown document,
+KreateTableOne should be called in a code chunk with \code{results='hide'} to
+hide the plain test results printed from \code{tableone::CreateTableOne}. The
+resulting data frame should be saved as an object and used in a second code
+chunk for formatted printing. Suggestions for improvement are welcomed.
 
-The function is written to work with \code{knitr::kable}, but should be able to work with other functions such as \code{xtable::xtable}.
+The function is written to work with \code{knitr::kable}, but should be able
+to work with other functions such as \code{xtable::xtable}.
 }
 \examples{
 table1 = KreateTableOne(x=mtcars, strata='am', factorVars='vs')
@@ -31,4 +44,3 @@ knitr::kable(table1)
 \seealso{
 \code{\link[tableone]{CreateTableOne}}
 }
-

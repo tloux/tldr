@@ -30,4 +30,3 @@ test1 = t.test(x)
 write_p(test1)
 
 }
-

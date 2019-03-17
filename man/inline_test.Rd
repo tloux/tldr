@@ -36,4 +36,3 @@ inline_test(test1)
 inline_test_p(test1)
 
 }
-

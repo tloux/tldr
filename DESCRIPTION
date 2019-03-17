@@ -1,15 +1,17 @@
 Package: tldr
 Title: T Loux Doing R: Functions to Simplify Data Analysis and Reporting
-Version: 0.1.5
+Version: 0.1.6
 Authors@R: person("Travis", "Loux", email = "travis.loux@slu.edu", 
                   role = c("aut", "cre"))
-Description: This package gives a number of functions to aid common data analysis processes and reporting
-    statistical results in an RMarkdown file. Data analysis functions combine multiple base R functions used to describe simple bivariate relationships into a single, easy to use function. Reporting functions will return character 
-    strings to report p-values, confidence intervals, and hypothesis test and 
-    regression results. Strings will be LaTeX-formatted as necessary and will
-    knit pretty in an RMarkdown document. The package also provides a wrapper
-    for the CreateTableOne function in the tableone package to make the results
-    knitable.
+Description: This package gives a number of functions to aid common data 
+    analysis processes and reporting statistical results in an RMarkdown file. 
+    Data analysis functions combine multiple base R functions used to describe 
+    simple bivariate relationships into a single, easy to use function. 
+    Reporting functions will return character strings to report p-values, 
+    confidence intervals, and hypothesis test and regression results. Strings 
+    will be LaTeX-formatted as necessary and will knit pretty in an RMarkdown 
+    document. The package also provides a wrapper for the CreateTableOne 
+    function in the tableone package to make the results knitable.
 Depends:
     R (>= 3.3.1)
 Imports:
@@ -19,4 +21,4 @@ Suggests:
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 6.1.1
