@@ -38,6 +38,7 @@ cat_compare(y=b, x=a, title='Relationship between a and b')
 - `inline_anova()`
 - `write_int()`
 - `write_p()`
+- `as_perc()`
 
 Using the data above, we can obtain some inferential results:
 
@@ -60,6 +61,8 @@ The regression results can be reported with `inline_reg(model1)` and `inline_coe
 We can also report the confidence intervals using `write_int()` with a length-2 vector of interval endpoints. For example, `write_int(c(3.04, 4.7))` and `write_int(text1$conf.int)` yield `r write_int(c(3.04, 4.7))` and `r write_int(test1$conf.int)`, respecively.
 
 P-values can be reported using `write_p()`. This function will take either a numeric value or a list-like object with an element named `p.value`. For example, `write_p(0.00002)` gives `r write_p(0.00002)` and `write_p(test1)` gives `r write_p(test1)`.
+
+Many R functions produce proportions, though analysts may want to report the output as a percentage. `as_perc()` will do this. For example, `as_perc(0.01)` will produce `r as_perc(0.01)`.
 
 See the help files of all functions described above for more details and options. For example, all test and regression reporting functions have wrappers ending in `_p` which report only the p-value of the input.
 
