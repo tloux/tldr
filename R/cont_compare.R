@@ -41,7 +41,7 @@ cont_compare = function(y, grp, plot=c('density','boxplot','none')){
   plot = plot[1]
 
   if(plot == 'none'){
-    ret = list(sum_tab, decomp, eta_sq)
+    ret = list(summary_stats=sum_tab, anova=decomp, eta_sq=eta_sq)
 
   }else{
     if(plot=='density'){
@@ -60,7 +60,7 @@ cont_compare = function(y, grp, plot=c('density','boxplot','none')){
         ggplot2::theme(legend.position='none')
     }
 
-    ret = list(sum_tab, decomp, eta_sq, myplot)
+    ret = list(summary_stats=sum_tab, anova=decomp, eta_sq=eta_sq, plot=myplot)
   }
 
   return(ret)
