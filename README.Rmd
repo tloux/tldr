@@ -12,8 +12,6 @@ This package gives a number of functions to aid common data analysis processes a
 
 ## Data analysis functions
 
-- `cat_compare()`
-
 Suppose we have the following data:
 
 ```{r, warning=FALSE}
@@ -27,6 +25,12 @@ We can investigate the relationship betweewn `a` and `b` using `cat_compare()`:
 
 ```{r}
 cat_compare(y=b, x=a, title='Relationship between a and b')
+```
+
+We can investigate the distribution of `x` across levels of `a` using `cont_compare()`:
+
+```{r}
+cont_compare(y=x, grp=a)
 ```
 
 
@@ -58,7 +62,7 @@ We can then report the results of the hypothesis test inline using `inline_test(
 
 The regression results can be reported with `inline_reg(model1)` and `inline_coef(model1, 'x')` to get `r inline_reg(model1)` and `r inline_coef(model1, 'x')`, respectively. In addition, `inline_anova(model2)` will report the ANOVA F statistic and relevant results: `r inline_anova(model2)`. So far `inline_reg` and `inline_coef` currently work for `lm` and `glm` objects; `inline_anova` only works for `lm` objects.
 
-We can also report the confidence intervals using `write_int()` with a length-2 vector of interval endpoints. For example, `write_int(c(3.04, 4.7))` and `write_int(text1$conf.int)` yield `r write_int(c(3.04, 4.7))` and `r write_int(test1$conf.int)`, respecively.
+We can also report the confidence intervals using `write_int()` with a length-2 vector of interval endpoints. For example, `write_int(c(3.04, 4.7))` and `write_int(test1$conf.int)` yield `r write_int(c(3.04, 4.7))` and `r write_int(test1$conf.int)`, respecively.
 
 P-values can be reported using `write_p()`. This function will take either a numeric value or a list-like object with an element named `p.value`. For example, `write_p(0.00002)` gives `r write_p(0.00002)` and `write_p(test1)` gives `r write_p(test1)`.
 
