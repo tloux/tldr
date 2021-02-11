@@ -5,8 +5,7 @@
 \alias{inline_coef_p}
 \title{Report the coefficient from a regression model inline}
 \usage{
-inline_coef(model, variable, coef = TRUE, stat = TRUE, pval = TRUE,
-  digits = 2)
+inline_coef(model, variable, coef = TRUE, stat = TRUE, pval = TRUE, digits = 2)
 
 inline_coef_p(model, variable, digits = 2)
 }
