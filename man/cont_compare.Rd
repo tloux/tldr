@@ -2,28 +2,10 @@
 % Please edit documentation in R/cont_compare.R
 \name{cont_compare}
 \alias{cont_compare}
-\title{Compare a numerical vairable across levels of a categorical variable}
+\title{Compare a numerical variable across levels of a categorical variable}
 \usage{
 cont_compare(y, grp, plot = c("density", "boxplot", "none"))
 }
-\arguments{
-\item{y}{A numerical variable}
-
-\item{grp}{A catgegorical variable}
-
-\item{plot}{Type of plot to produce}
-
-\item{print_plot}{Whether plot should be printed to screen. Plot will always be saved as part of output list.}
-}
-\value{
-Returns a list including (1) group-wise summary statistics, (2) an ANOVA decomposition, (3) eta-squared effect size, and (4) a ggplot2 object, if requested.
-}
 \description{
-\code{cont_compare} gives details about the distribution of a numeric variable ascorss subsets of the dataset
-}
-\examples{
-v1 = rbinom(n=50, size=1, p=0.5)
-v2 = rnorm(50)
-cat_compare(y=v2, grp=v1, plot='density')
-
+Deprecated. Use \code{\link{`num_compare`}} instead.
 }

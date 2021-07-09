@@ -1,19 +1,7 @@
 
-#' Compare a numerical vairable across levels of a categorical variable
+#' Compare a numerical variable across levels of a categorical variable
 #'
-#' \code{cont_compare} gives details about the distribution of a numeric variable ascorss subsets of the dataset
-#'
-#' @param y A numerical variable
-#' @param grp A catgegorical variable
-#' @param plot Type of plot to produce
-#' @param print_plot Whether plot should be printed to screen. Plot will always be saved as part of output list.
-#'
-#' @return Returns a list including (1) group-wise summary statistics, (2) an ANOVA decomposition, (3) eta-squared effect size, and (4) a ggplot2 object, if requested.
-#'
-#' @examples
-#' v1 = rbinom(n=50, size=1, p=0.5)
-#' v2 = rnorm(50)
-#' cat_compare(y=v2, grp=v1, plot='density')
+#' Deprecated. Use \code{\link{`num_compare`}} instead.
 #'
 #' @export
 
