@@ -6,7 +6,6 @@
 #' @param y A numerical variable
 #' @param grp A categorical variable
 #' @param plot Type of plot to produce
-#' @param print_plot Whether plot should be printed to screen. Plot will always be saved as part of output list if `plot` is not `'none'`.
 #'
 #' @return Returns a list including (1) group-wise summary statistics, (2) ANOVA decomposition, (3) eta-squared effect size, and (4) ggplot2 object, if requested.
 #'
@@ -64,14 +63,13 @@ num_compare = function(y, grp, plot=c('density','boxplot','none')){
         ggplot2::geom_density(alpha=0.5) +
         ggplot2::geom_rug(ggplot2::aes(color=grp)) +
         ggplot2::facet_grid(grp ~ .) +
-        ggplot2::theme_minimal() +
+        ggplot2::scale_y_continuous(breaks=NULL) +
         ggplot2::theme(legend.position="none")
     }
 
     if(plot == 'boxplot'){
       myplot = ggplot2::ggplot(data=mydat, ggplot2::aes(y=y, x=grp, fill=grp)) +
         ggplot2::geom_boxplot(alpha=0.5) +
-        ggplot2::theme_minimal() +
         ggplot2::theme(legend.position='none')
     }
 

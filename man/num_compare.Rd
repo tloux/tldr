@@ -12,8 +12,6 @@ num_compare(y, grp, plot = c("density", "boxplot", "none"))
 \item{grp}{A categorical variable}
 
 \item{plot}{Type of plot to produce}
-
-\item{print_plot}{Whether plot should be printed to screen. Plot will always be saved as part of output list if `plot` is not `'none'`.}
 }
 \value{
 Returns a list including (1) group-wise summary statistics, (2) ANOVA decomposition, (3) eta-squared effect size, and (4) ggplot2 object, if requested.

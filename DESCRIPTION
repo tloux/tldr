@@ -1,6 +1,6 @@
 Package: tldr
 Title: T Loux Doing R: Functions to Simplify Data Analysis and Reporting
-Version: 0.1.10
+Version: 0.1.11
 Authors@R: person("Travis", "Loux", email = "travis.loux@slu.edu", 
                   role = c("aut", "cre"))
 Description: This package gives a number of functions to aid common data 
@@ -16,7 +16,8 @@ Depends:
     R (>= 3.3.1)
 Imports:
     tableone, 
-    ggplot2
+    ggplot2, 
+    reshape2
 Suggests:
     knitr
 License: GPL-3

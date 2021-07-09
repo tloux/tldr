@@ -2,35 +2,31 @@
 % Please edit documentation in R/cat_compare.R
 \name{cat_compare}
 \alias{cat_compare}
-\title{Investigate association bewtween two categorical variables}
+\title{Investigate association between two categorical variables}
 \usage{
-cat_compare(y, x, title = "", digits = 2, plot = TRUE)
+cat_compare(x, y, plot = TRUE)
 }
 \arguments{
+\item{x}{A categorical variable: the predictor or group variable, if appropriate}
+
 \item{y}{A categorical variable: the outcome, if appropriate}
-
-\item{x}{A catgegorical variable: the predictor or group variable, if appropriate}
-
-\item{title}{The main title of the mosaic plot}
-
-\item{digits}{Number of digits which proportion table should be round to (default to 2)}
 
 \item{plot}{Logical. Whether a mosaic plot should be drawn}
 }
 \value{
-Returns a list including (1) a two-way table of counts, (2) a two-way table of proportions conditional on x (columns), (3) a chi-squared test for independence between x and y, and (4) Cramer's V for the association between x and y.
+Returns a list including (1) two-way table of counts, (2) chi-squared test for independence, (3) Cramer's V standardized effect, and (4) ggplot2 column plot of proportions conditional on x, if requested.
 
-The two tables will include missing values of both variables, but these rows/columns are discarded prior to the chi-squared test and Cramer's V calculations.
+The table of counts will include missing values of both variables, but these rows/columns are discarded prior to the chi-squared test and Cramer's V calculations.
 }
 \description{
 \code{cat_compare} gives details about the association between two categorical variables.
 }
 \details{
-Strictly, x and y do not need to be characters or factors. Either or both may be numerical, but it will be assumed the numbers are coded categories.
+Strictly, x and y do not need to be factors but will be coerced into factors.
 }
 \examples{
 v1 = rbinom(n=50, size=1, p=0.5)
 v2 = rbinom(n=50, size=2, p=0.3 + 0.2*v1)
-cat_compare(y=v2, x=v1, title='A cat_compare example', digits=3, plot=TRUE)
+cat_compare(x=v1, y=v2, plot=TRUE)
 
 }
