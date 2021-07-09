@@ -15,22 +15,21 @@ This package gives a number of functions to aid common data analysis processes a
 Suppose we have the following data:
 
 ```{r, warning=FALSE}
-x = rnorm(50)
-y = rnorm(50)
-a = sample(letters[1:3], size=50, replace=TRUE)
-b = sample(letters[4:6], size=50, replace=TRUE)
+pred1 = sample(letters[1:3], size=50, replace=TRUE)
+out1 = sample(letters[4:6], size=50, replace=TRUE)
+out2 = rnorm(50)
 ```
 
-We can investigate the relationship betweewn `a` and `b` using `cat_compare()`:
+We can investigate the relationship between `pred1` and `out1` using `cat_compare()`:
 
 ```{r}
-cat_compare(y=b, x=a, title='Relationship between a and b')
+cat_compare(x=pred1, y=out1)
 ```
 
-We can investigate the distribution of `x` across levels of `a` using `cont_compare()`:
+We can investigate the distribution of `out2` across levels of `pred1` using `num_compare()`:
 
 ```{r}
-cont_compare(y=x, grp=a)
+num_compare(y=out2, grp=pred1)
 ```
 
 
@@ -62,7 +61,7 @@ We can then report the results of the hypothesis test inline using `inline_test(
 
 The regression results can be reported with `inline_reg(model1)` and `inline_coef(model1, 'x')` to get `r inline_reg(model1)` and `r inline_coef(model1, 'x')`, respectively. In addition, `inline_anova(model2)` will report the ANOVA F statistic and relevant results: `r inline_anova(model2)`. So far `inline_reg` and `inline_coef` currently work for `lm` and `glm` objects; `inline_anova` only works for `lm` objects.
 
-We can also report the confidence intervals using `write_int()` with a length-2 vector of interval endpoints. For example, `write_int(c(3.04, 4.7))` and `write_int(test1$conf.int)` yield `r write_int(c(3.04, 4.7))` and `r write_int(test1$conf.int)`, respecively.
+We can also report the confidence intervals using `write_int()` with a length-2 vector of interval endpoints. For example, `write_int(c(3.04, 4.7))` and `write_int(test1$conf.int)` yield `r write_int(c(3.04, 4.7))` and `r write_int(test1$conf.int)`, respectively. If a 2-column matrix is provided to `write_int()`, the entries in each row will be formatted into an interval and a character vector will be returned.
 
 P-values can be reported using `write_p()`. This function will take either a numeric value or a list-like object with an element named `p.value`. For example, `write_p(0.00002)` gives `r write_p(0.00002)` and `write_p(test1)` gives `r write_p(test1)`.
 

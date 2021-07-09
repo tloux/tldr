@@ -50,8 +50,8 @@ cat_compare = function(x, y, plot=TRUE){
     tmp$y = as.factor(tmp$y)
     names(tmp)[3] = 'prop within x'
 
-    myplot = ggplot(data=tmp, aes(x=x, y=`prop within x`, fill=y)) +
-      geom_col(position=position_dodge())
+    myplot = ggplot2::ggplot(data=tmp, aes(x=x, y=`prop within x`, fill=y)) +
+      ggplot2::geom_col(position=ggplot2::position_dodge())
 
     ret = list(counts=tab_counts, chisq=chisq, CramersV=V, plot=myplot)
   }
