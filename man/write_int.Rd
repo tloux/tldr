@@ -7,17 +7,20 @@
 write_int(x, delim = "(", digits = 2)
 }
 \arguments{
-\item{x}{A length-2 numeric vector consisting of the endpoints of the interval or a 2-column matrix with endpoints of intervals in each row.}
+\item{x}{A length-2 numeric vector consisting of the endpoints of the interval or an n-row by 2-column matrix of endpoints.}
 
 \item{delim}{The bracket delimiters to surround the interval. Must be either a round bracket, square bracket, curly bracket, or angled bracket.}
 
 \item{digits}{Number of digits to round to (default to 2). Will keep trailing zeros.}
 }
 \value{
-Returns a character string of the form "(x[1], x[2])" (or supplied bracket delimiter) or a character vector of multiple formatted intervals if x is a matrix.
+Returns a character string of the form "(x[1], x[2])" (or supplied bracket delimiter).
 }
 \description{
-\code{write_int} formats a numeric input into a character interval to be printed, e.g., in an RMarkdown document.
+\code{write_int} formats a numeric input into an interval to be printed, e.g., in an RMarkdown document.
+}
+\details{
+If a matrix is provided, the values in each row will be used to create a formatted interval.
 }
 \examples{
 write_int(x=c(1.2, 2.345))
