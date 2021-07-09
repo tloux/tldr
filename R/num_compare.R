@@ -48,7 +48,7 @@ num_compare = function(y, grp, plot=c('density','boxplot','none')){
 
   # eta-squared
 
-  eta_sq = decomp[[1]]$`Sum Sq`[1] / sum(decomp[[1]]$`Sum Sq`)
+  eta_sq = summary(decomp)[[1]]$`Sum Sq`[1] / sum(summary(decomp)[[1]]$`Sum Sq`)
 
   # plot
 
