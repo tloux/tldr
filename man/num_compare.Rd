@@ -22,6 +22,6 @@ Returns a list including (1) group-wise summary statistics, (2) ANOVA decomposit
 \examples{
 v1 = rbinom(n=50, size=1, p=0.5)
 v2 = rnorm(50)
-cat_compare(y=v2, grp=v1, plot='density')
+num_compare(y=v2, grp=v1, plot='density')
 
 }

@@ -27,14 +27,14 @@ cat_compare = function(x, y, plot=TRUE){
   # table of counts
 
   tab_counts0 = table(mydat$x, mydat$y, useNA='ifany', dnn=c('x','y'))
-  tab_counts = addmargins(tab_counts0)
+  tab_counts = stats::addmargins(tab_counts0)
 
   # chi-squared test (observed data only)
 
   tab_no_miss = table(mydat$x, mydat$y, useNA='no')
-  chisq = chisq.test(tab_no_miss)
+  chisq = stats::chisq.test(tab_no_miss)
 
-  # cramer's V
+  # Cramer's V
 
   min_dim = min(nrow(tab_no_miss), ncol(tab_no_miss))
   V = unname(sqrt(chisq$statistic / (sum(tab_no_miss) * (min_dim - 1))))
@@ -50,6 +50,7 @@ cat_compare = function(x, y, plot=TRUE){
     tmp$y = as.factor(tmp$y)
     names(tmp)[3] = 'prop within x'
 
+    `prop within x` = NA
     myplot = ggplot2::ggplot(data=tmp, ggplot2::aes(x=x, y=`prop within x`, fill=y)) +
       ggplot2::geom_col(position=ggplot2::position_dodge())
 

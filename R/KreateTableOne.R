@@ -22,6 +22,7 @@
 #'
 #' @param x The data set to be passed to the \code{data} parameter of
 #'   \code{tableone::CreateTableOne}
+#' @param printSMD Logical passed to \code{smd} parameter of \code{tableone::CreateTableOne}
 #' @param ... Other parameters to be passed to \code{tableone::CreateTableOne}
 #'
 #' @return Returns a data frame of character columns.
@@ -35,8 +36,8 @@
 #'
 #' @export
 
-KreateTableOne = function(x, ..., printSMD = TRUE){
-  t1 = tableone::CreateTableOne(data=x, ...)
+KreateTableOne = function(x, printSMD = TRUE, ...){
+  t1 = tableone::CreateTableOne(data=x, smd=printSMD, ...)
   t2 = print(t1, quote=TRUE, ...)
   rownames(t2) = gsub(pattern='\\"', replacement='', rownames(t2))
   colnames(t2) = gsub(pattern='\\"', replacement='', colnames(t2))

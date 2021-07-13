@@ -12,7 +12,7 @@
 #' @examples
 #' v1 = rbinom(n=50, size=1, p=0.5)
 #' v2 = rnorm(50)
-#' cat_compare(y=v2, grp=v1, plot='density')
+#' num_compare(y=v2, grp=v1, plot='density')
 #'
 #' @export
 
@@ -32,10 +32,10 @@ num_compare = function(y, grp, plot=c('density','boxplot','none')){
     yobs = sum(!is.na(ysubset))
     ymis = length(ysubset) - yobs
     ymn = mean(ysubset, na.rm=TRUE)
-    ysd = sd(ysubset, na.rm=TRUE)
-    ymed = median(ysubset, na.rm=TRUE)
-    yq1 = unname(quantile(ysubset, probs=0.25, na.rm=TRUE))
-    yq3 = unname(quantile(ysubset, probs=0.75, na.rm=TRUE))
+    ysd = stats::sd(ysubset, na.rm=TRUE)
+    ymed = stats::median(ysubset, na.rm=TRUE)
+    yq1 = unname(stats::quantile(ysubset, probs=0.25, na.rm=TRUE))
+    yq3 = unname(stats::quantile(ysubset, probs=0.75, na.rm=TRUE))
 
     ret = c('n'=yn, 'obs'=yobs, 'mis'=ymis,
             'mean'=ymn, 'stdev'=ysd,
@@ -44,7 +44,7 @@ num_compare = function(y, grp, plot=c('density','boxplot','none')){
 
   # ANOVA
 
-  decomp = aov(y ~ grp, data=mydat)
+  decomp = stats::aov(y ~ grp, data=mydat)
 
   # eta-squared
 

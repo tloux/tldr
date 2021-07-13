@@ -5,13 +5,15 @@
 \alias{svyKreateTableOne}
 \title{Create a table of descriptive statistics formatted for knitr::kable}
 \usage{
-KreateTableOne(x, ..., printSMD = TRUE)
+KreateTableOne(x, printSMD = TRUE, ...)
 
 svyKreateTableOne(x, ..., printSMD = TRUE)
 }
 \arguments{
 \item{x}{The data set to be passed to the \code{data} parameter of
 \code{tableone::CreateTableOne}}
+
+\item{printSMD}{Logical passed to \code{smd} parameter of \code{tableone::CreateTableOne}}
 
 \item{...}{Other parameters to be passed to \code{tableone::CreateTableOne}}
 }

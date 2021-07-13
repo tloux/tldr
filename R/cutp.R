@@ -24,7 +24,7 @@
 
 cutp = function(x, p, ...){
 
-  brks = quantile(x=x, probs=p)
+  brks = stats::quantile(x=x, probs=p)
   newx = cut(x=x, breaks=c(-Inf,brks,Inf), ...)
 
   return(newx)

@@ -1,11 +1,17 @@
 
 #' Compare a numerical variable across levels of a categorical variable
 #'
-#' Deprecated. Use \code{\link{`num_compare`}} instead.
+#' Deprecated. Use `\code{\link{num_compare}}` instead.
+#'
+#' @param y A numerical variable
+#' @param grp A categorical variable
+#' @param plot Type of plot to produce
 #'
 #' @export
 
 cont_compare = function(y, grp, plot=c('density','boxplot','none')){
+
+  .Deprecated("num_compare")
 
   mydat = data.frame(grp=as.character(grp), y)
 
@@ -18,11 +24,12 @@ cont_compare = function(y, grp, plot=c('density','boxplot','none')){
 
   # ANOVA
 
-  decomp = summary(aov(y ~ grp, data=mydat))
+  decomp = stats::aov(y ~ grp, data=mydat)
 
   # eta-squared
 
-  eta_sq = decomp[[1]]$`Sum Sq`[1] / sum(decomp[[1]]$`Sum Sq`)
+  sumdecomp = summary(decomp)
+  eta_sq = sumdecomp[[1]]$`Sum Sq`[1] / sum(sumdecomp[[1]]$`Sum Sq`)
 
   # plot
 

@@ -44,7 +44,7 @@ inline_reg(model1)
 
 x2 = rnorm(20)
 y2 = rbinom(n=20, size=1, prob=pnorm(x2))
-model2 = glm(y2 + x2, family=binomial('logit'))
+model2 = glm(y2 ~ x2, family=binomial('logit'))
 inline_reg(model2)
 
 }

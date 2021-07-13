@@ -6,6 +6,13 @@
 \usage{
 cont_compare(y, grp, plot = c("density", "boxplot", "none"))
 }
+\arguments{
+\item{y}{A numerical variable}
+
+\item{grp}{A categorical variable}
+
+\item{plot}{Type of plot to produce}
+}
 \description{
-Deprecated. Use \code{\link{`num_compare`}} instead.
+Deprecated. Use `\code{\link{num_compare}}` instead.
 }
