@@ -8,4 +8,7 @@
 
 There were no ERRORs or WARNINGs 
 
-There is 1 NOTE due to this being a new package submission
+There are 2 NOTEs.
+
+* One is due to this being a new package submission
+* One is highlighting the possible mis-spelling of my last name. It is correctly spelled.
