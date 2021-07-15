@@ -3,3 +3,4 @@
 ^README\.Rmd$
 ^README_.*\.png$
 ^cran-comments.md$
+^CRAN-RELEASE$

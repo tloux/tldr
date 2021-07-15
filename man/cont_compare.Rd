@@ -13,6 +13,9 @@ cont_compare(y, grp, plot = c("density", "boxplot", "none"))
 
 \item{plot}{Type of plot to produce}
 }
+\value{
+Returns a list including (1) group-wise summary statistics, (2) ANOVA decomposition, (3) eta-squared effect size, and (4) ggplot2 object, if requested.
+}
 \description{
 Deprecated. Use `\code{\link{num_compare}}` instead.
 }

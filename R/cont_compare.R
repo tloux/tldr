@@ -7,6 +7,8 @@
 #' @param grp A categorical variable
 #' @param plot Type of plot to produce
 #'
+#' @return Returns a list including (1) group-wise summary statistics, (2) ANOVA decomposition, (3) eta-squared effect size, and (4) ggplot2 object, if requested.
+#'
 #' @export
 
 cont_compare = function(y, grp, plot=c('density','boxplot','none')){
