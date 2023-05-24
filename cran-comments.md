@@ -7,4 +7,10 @@
 
 ## R CMD check results
 
-There were no ERRORs or WARNINGs or NOTEs.
+There were no ERRORs or WARNINGs.
+
+There was one NOTE:
+
+Skipping checking HTML validation: no command 'tidy' found
+
+As I understand, this should not be a problem for CRAN submission.
