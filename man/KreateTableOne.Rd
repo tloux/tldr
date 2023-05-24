@@ -3,19 +3,20 @@
 \name{KreateTableOne}
 \alias{KreateTableOne}
 \alias{svyKreateTableOne}
+\alias{KnitableTableOne}
 \title{Create a table of descriptive statistics formatted for knitr::kable}
 \usage{
-KreateTableOne(x, printSMD = TRUE, ...)
+KreateTableOne(...)
 
-svyKreateTableOne(x, ..., printSMD = TRUE)
+svyKreateTableOne(...)
+
+KnitableTableOne(x, ...)
 }
 \arguments{
-\item{x}{The data set to be passed to the \code{data} parameter of
-\code{tableone::CreateTableOne}}
+\item{...}{Parameters to be passed to \code{tableone::CreateTableOne}
+(\code{KreateTableOne}) or \code{tableone::print.TableOne} (\code{KnitableTableOne}).}
 
-\item{printSMD}{Logical passed to \code{smd} parameter of \code{tableone::CreateTableOne}}
-
-\item{...}{Other parameters to be passed to \code{tableone::CreateTableOne}}
+\item{x}{A TableOne object created from \code{tableone::CreateTableOne}.}
 }
 \value{
 Returns a data frame of character columns.
@@ -23,26 +24,29 @@ Returns a data frame of character columns.
 \description{
 \code{KreateTableOne} is a wrapper for \code{tableone::CreateTableOne} which
 formats the original plain text table as a data.frame of character columns.
-This can be printed in an RMarkdown document in a number of ways, e.g., using
+\code{KnitableTableOne} is a wrapper for \code{tableone::print.TableOne} which
+allows for more versatility in printing options. The output of both functions
+can be printed in an RMarkdown document in a number of ways, e.g., using
 \code{knitr::kable}. \code{svyKreateTabeOne} does the same with
-\code{tableone::svyCreateTableOne}.
+\code{tableone::svyCreateTableOne} for complex survey data.
 }
 \details{
-This is a very hacky function. If used within an RMarkdown document,
-KreateTableOne should be called in a code chunk with \code{results='hide'} to
-hide the plain test results printed from \code{tableone::CreateTableOne}. The
-resulting data frame should be saved as an object and used in a second code
-chunk for formatted printing. Suggestions for improvement are welcomed.
+These are very hacky functions. If used within an RMarkdown document,
+KreateTableOne and KnitableTableOne should be called in a code chunk with
+\code{results='hide'} to hide the plain test results printed from
+\code{tableone::CreateTableOne}. The resulting data frame should be saved
+as an object and used in a second code chunk for formatted printing.
+Suggestions for improvement are welcomed.
 
 The function is written to work with \code{knitr::kable}, but should be able
 to work with other functions such as \code{xtable::xtable}.
 }
 \examples{
-table1 = KreateTableOne(x=mtcars, strata='am', factorVars='vs')
+table1 = KreateTableOne(data=mtcars, strata='am', factorVars='vs')
 table1
 knitr::kable(table1)
 
 }
 \seealso{
-\code{\link[tableone]{CreateTableOne}}
+\code{\link[tableone]{CreateTableOne}} \code{\link[tableone]{print.TableOne}}
 }
