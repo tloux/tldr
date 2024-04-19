@@ -1,16 +1,9 @@
 ## Test environments
 
-* local Windows 10 install, R 4.1.0
+* local Windows 10 install, R 4.3.1
 * win-builder
-* rhub
 
 
 ## R CMD check results
 
-There were no ERRORs or WARNINGs.
-
-There was one NOTE:
-
-Skipping checking HTML validation: no command 'tidy' found
-
-As I understand, this should not be a problem for CRAN submission.
+There were no ERRORs or WARNINGs or NOTEs.
