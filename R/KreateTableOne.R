@@ -48,6 +48,7 @@ KreateTableOne = function(...){
 
 
 #' @rdname KreateTableOne
+#' @export
 
 svyKreateTableOne = function(...){
   t1 = tableone::svyCreateTableOne(...)
@@ -58,6 +59,7 @@ svyKreateTableOne = function(...){
 }
 
 #' @rdname KreateTableOne
+#' @export
 
 KnitableTableOne = function(x, ...){
   t2 = print(x, quote=TRUE, ...)

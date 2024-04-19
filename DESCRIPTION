@@ -1,6 +1,6 @@
 Package: tldr
 Title: T Loux Doing R: Functions to Simplify Data Analysis and Reporting
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: person("Travis", "Loux", email = "travis.loux@slu.edu", 
                   role = c("aut", "cre"))
 Description: Gives a number of functions to aid common data 
@@ -13,7 +13,7 @@ Description: Gives a number of functions to aid common data
     document. The package also provides a wrapper for the CreateTableOne() 
     function in the 'tableone' package to make the results knit-able.
 Depends:
-    R (>= 4.0.0)
+    R (>= 4.1.0)
 Imports:
     tableone, 
     ggplot2, 
@@ -23,4 +23,4 @@ Suggests:
 License: GPL-3
 Encoding: UTF-8
 LazyData: false
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.1
